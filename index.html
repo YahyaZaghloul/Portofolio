@@ -117,7 +117,7 @@
                         </p>
                         <p class="text-gray-400"><span class="text-cyber-darkred">_</span> Cyber Security Enthusiast</p>
                         <p class="text-gray-400">
-                            <span class="text-cyber-darkred">_</span> CTF Player | Bug Bounty
+                            <span class="text-cyber-darkred">_</span> Machines and Sherlocks solving | Bug Bounty
                             Learner
                         </p>
                         <p class="text-gray-400">
@@ -125,17 +125,18 @@
                             Hacking.
                         </p>
                         <p class="text-cyber-red mt-4 text-lg">
-                            &gt; <span id="typing-text" class="text-white"></span><span class="cursor-blink text-cyber-red">_</span>
+                            &gt; <span id="typing-text" class="text-white"></span><span
+                                class="cursor-blink text-cyber-red">_</span>
                         </p>
                     </div>
 
                     <div class="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 mt-10">
                         <a href="#projects"
-                           class="w-full sm:w-auto px-8 py-3 bg-cyber-red text-white font-mono font-bold hover:bg-cyber-darkred transition-all duration-300 border border-cyber-red glow-border-hover flex items-center justify-center gap-2">
+                            class="w-full sm:w-auto px-8 py-3 bg-cyber-red text-white font-mono font-bold hover:bg-cyber-darkred transition-all duration-300 border border-cyber-red glow-border-hover flex items-center justify-center gap-2">
                             <i class="fas fa-code"></i> View Projects
                         </a>
                         <a href="#contact"
-                           class="w-full sm:w-auto px-8 py-3 bg-transparent text-white font-mono border border-cyber-border hover:border-cyber-red hover:text-cyber-red transition-all duration-300 flex items-center justify-center gap-2">
+                            class="w-full sm:w-auto px-8 py-3 bg-transparent text-white font-mono border border-cyber-border hover:border-cyber-red hover:text-cyber-red transition-all duration-300 flex items-center justify-center gap-2">
                             <i class="fas fa-terminal"></i> Contact Me
                         </a>
                     </div>
@@ -143,32 +144,37 @@
 
                 <!-- Right Column (Map / Status) -->
                 <div class="hidden md:flex md:col-span-2 flex-col items-end justify-center font-mono space-y-6">
-                    <!-- Ascii Map Placeholder -->
-                    <div class="text-cyber-darkred text-[0.45rem] leading-[0.45rem] opacity-70 select-none whitespace-pre overflow-hidden">
-                        .................................
-                        .......:::::::::::::::::::::::::.......
-                        .....:::::::::::::::::::::::::::::::.....
-                        ...:::::::::::::::::::::::::::::::::::::...
-                        ..::::::::::::::::::::::::::::::::::::::..
-                        .::::::::::::::::::::::::::::::::::::::::.
-                        .::::::::::::::::::::::::::::::::::::::::.
-                        .::::::::::::::::::::::::::::::::::::::::.
-                        ..::::::::::::::::::::::::::::::::::::::..
-                        ...::::::::::::::::::::::::::::::::::::...
-                        .....:::::::::::::::::::::::::::::::.....
-                        .......:::::::::::::::::::::::::.......
-                        .................................
-                    </div>
+                    <!-- HTB Rank / XP Bar -->
+                    <a href="https://profile.hackthebox.com/profile/019d2929-de31-7339-a932-623efc772dcc"
+                        target="_blank"
+                        class="w-full max-w-xs block bg-black/40 border border-cyber-darkred/40 p-4 hover:border-[#9fef00] transition-colors group cursor-pointer hover:shadow-[0_0_15px_rgba(159,239,0,0.2)]">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-[#9fef00] font-bold flex items-center gap-2">
+                                <i class="fas fa-cube"></i> HACK THE BOX
+                            </span>
+                            <span class="text-xs text-gray-400 group-hover:text-white transition-colors"
+                                id="htb-rank-text">SYNCING...</span>
+                        </div>
+                        <div class="w-full bg-cyber-bg h-3 border border-cyber-border relative overflow-hidden mt-3">
+                            <div id="htb-xp-bar"
+                                class="absolute top-0 left-0 h-full bg-[#9fef00] w-[0%] shadow-[0_0_10px_#9fef00] transition-all duration-1000 ease-out">
+                            </div>
+                        </div>
+                        <div class="flex justify-between text-[0.65rem] text-gray-500 mt-1">
+                            <span id="htb-xp-text">CONNECTING...</span>
+                            <span>[REAL-TIME]</span>
+                        </div>
+                    </a>
 
+                    <!-- Dynamic IP Trace -->
                     <div class="w-full max-w-xs border border-cyber-darkred/40 p-6 text-sm bg-black/40">
                         <p class="text-cyber-red mb-4 border-b border-cyber-darkred/40 pb-2 flex justify-between">
-                            <span>IP_TRACE</span> <span>192.168.1.1</span>
+                            <span>IP_TRACE</span> <span id="dynamic-ip">192.168.1.1</span>
                         </p>
                         <p class="text-cyber-darkred mb-2">SYSTEM STATUS</p>
-                        <p class="text-cyber-red mb-1">&gt; Scanning..</p>
-                        <p class="text-cyber-red mb-1">&gt; Enumerating...</p>
-                        <p class="text-cyber-red mb-1">&gt; Exploiting..</p>
-                        <p class="text-white mt-2">&gt; Access Granted</p>
+                        <div id="trace-output" class="h-32 overflow-hidden flex flex-col justify-end space-y-1">
+                            <!-- JS will populate this -->
+                        </div>
                     </div>
                 </div>
 
@@ -186,13 +192,18 @@
                     <div class="space-y-6 text-gray-300 text-lg leading-relaxed">
                         <p>
                             Hello! I'm Yahya, a 3rd Year Computer Science student at Sadat Academy for Management
-                            Sciences (SAMS). I have a deep-rooted passion for <strong class="text-white font-mono text-sm">cybersecurity</strong> and uncovering
+                            Sciences (SAMS). I have a deep-rooted passion for <strong
+                                class="text-white font-mono text-sm">cybersecurity</strong> and uncovering
                             vulnerabilities before they can be exploited.
                         </p>
                         <p>
-                            My journey is fueled by continuous learning in areas like <strong class="text-white font-mono text-sm">penetration testing</strong>, <strong class="text-white font-mono text-sm">web security</strong>, and actively participating
-                            in <strong class="text-white font-mono text-sm">CTF (Capture The Flag)</strong> challenges
-                            to hone my offensive and defensive skills.
+                            I am driven by a relentless pursuit of offensive security and threat hunting. My core focus
+                            spans <strong class="text-white font-mono text-sm">penetration testing</strong> and <strong
+                                class="text-white font-mono text-sm">web vulnerability research</strong>. I continuously
+                            sharpen my tradecraft by compromising complex <strong
+                                class="text-white font-mono text-sm">Machines</strong> and solving investigative <strong
+                                class="text-white font-mono text-sm">Sherlocks</strong> on Hack The Box, bridging the
+                            gap between offensive exploits and defensive resilience.
                         </p>
                         <p>
                             Whether it's analyzing network traffic, scripting custom tools, or securing web
@@ -201,9 +212,11 @@
                         </p>
                     </div>
                     <div class="relative group">
-                        <div class="absolute inset-0 bg-cyber-red/20 transform translate-x-4 translate-y-4 border border-cyber-red/50 transition-transform group-hover:translate-x-2 group-hover:translate-y-2">
+                        <div
+                            class="absolute inset-0 bg-cyber-red/20 transform translate-x-4 translate-y-4 border border-cyber-red/50 transition-transform group-hover:translate-x-2 group-hover:translate-y-2">
                         </div>
-                        <div class="relative bg-cyber-panel border border-cyber-border p-8 h-full flex flex-col justify-center items-center text-center">
+                        <div
+                            class="relative bg-cyber-panel border border-cyber-border p-8 h-full flex flex-col justify-center items-center text-center">
                             <i class="fas fa-user-shield text-6xl text-cyber-red mb-6"></i>
                             <h3 class="text-xl text-white font-bold mb-2">Ethical Hacker</h3>
                             <p class="font-mono text-sm text-gray-400">defend_through_offense.sh</p>
@@ -223,43 +236,55 @@
 
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
                     <!-- Skill Card -->
-                    <div class="bg-black/40 border border-cyber-darkred/40 p-6 hover:border-cyber-red transition-colors duration-300 group flex flex-col items-center text-center">
-                        <i class="fab fa-linux text-4xl text-cyber-darkred mb-4 group-hover:text-cyber-red transition-colors"></i>
+                    <div
+                        class="bg-black/40 border border-cyber-darkred/40 p-6 hover:border-cyber-red transition-colors duration-300 group flex flex-col items-center text-center">
+                        <i
+                            class="fab fa-linux text-4xl text-cyber-darkred mb-4 group-hover:text-cyber-red transition-colors"></i>
                         <h3 class="text-cyber-red font-bold mb-2 font-mono">Linux</h3>
                         <p class="text-sm text-gray-500">Bash scripting, sysadmin, privesc</p>
                     </div>
 
                     <!-- Skill Card -->
-                    <div class="bg-black/40 border border-cyber-darkred/40 p-6 hover:border-cyber-red transition-colors duration-300 group flex flex-col items-center text-center">
-                        <i class="fas fa-network-wired text-4xl text-cyber-darkred mb-4 group-hover:text-cyber-red transition-colors"></i>
+                    <div
+                        class="bg-black/40 border border-cyber-darkred/40 p-6 hover:border-cyber-red transition-colors duration-300 group flex flex-col items-center text-center">
+                        <i
+                            class="fas fa-network-wired text-4xl text-cyber-darkred mb-4 group-hover:text-cyber-red transition-colors"></i>
                         <h3 class="text-cyber-red font-bold mb-2 font-mono">Networking</h3>
                         <p class="text-sm text-gray-500">TCP/IP, Wireshark, Nmap, routing</p>
                     </div>
 
                     <!-- Skill Card -->
-                    <div class="bg-black/40 border border-cyber-darkred/40 p-6 hover:border-cyber-red transition-colors duration-300 group flex flex-col items-center text-center">
-                        <i class="fab fa-python text-4xl text-cyber-darkred mb-4 group-hover:text-cyber-red transition-colors"></i>
+                    <div
+                        class="bg-black/40 border border-cyber-darkred/40 p-6 hover:border-cyber-red transition-colors duration-300 group flex flex-col items-center text-center">
+                        <i
+                            class="fab fa-python text-4xl text-cyber-darkred mb-4 group-hover:text-cyber-red transition-colors"></i>
                         <h3 class="text-cyber-red font-bold mb-2 font-mono">Python</h3>
                         <p class="text-sm text-gray-500">Automation, custom exploits, tooling</p>
                     </div>
 
                     <!-- Skill Card -->
-                    <div class="bg-black/40 border border-cyber-darkred/40 p-6 hover:border-cyber-red transition-colors duration-300 group flex flex-col items-center text-center">
-                        <i class="fas fa-globe text-4xl text-cyber-darkred mb-4 group-hover:text-cyber-red transition-colors"></i>
+                    <div
+                        class="bg-black/40 border border-cyber-darkred/40 p-6 hover:border-cyber-red transition-colors duration-300 group flex flex-col items-center text-center">
+                        <i
+                            class="fas fa-globe text-4xl text-cyber-darkred mb-4 group-hover:text-cyber-red transition-colors"></i>
                         <h3 class="text-cyber-red font-bold mb-2 font-mono">Web Security</h3>
                         <p class="text-sm text-gray-500">OWASP Top 10, Burp Suite, SQLi, XSS</p>
                     </div>
 
                     <!-- Skill Card -->
-                    <div class="bg-black/40 border border-cyber-darkred/40 p-6 hover:border-cyber-red transition-colors duration-300 group flex flex-col items-center text-center">
-                        <i class="fas fa-shield-alt text-4xl text-cyber-darkred mb-4 group-hover:text-cyber-red transition-colors"></i>
+                    <div
+                        class="bg-black/40 border border-cyber-darkred/40 p-6 hover:border-cyber-red transition-colors duration-300 group flex flex-col items-center text-center">
+                        <i
+                            class="fas fa-shield-alt text-4xl text-cyber-darkred mb-4 group-hover:text-cyber-red transition-colors"></i>
                         <h3 class="text-cyber-red font-bold mb-2 font-mono">Pentesting</h3>
                         <p class="text-sm text-gray-500">Methodologies, reconnaissance, exploitation</p>
                     </div>
 
                     <!-- Skill Card -->
-                    <div class="bg-black/40 border border-cyber-darkred/40 p-6 hover:border-cyber-red transition-colors duration-300 group flex flex-col items-center text-center">
-                        <i class="fas fa-toolbox text-4xl text-cyber-darkred mb-4 group-hover:text-cyber-red transition-colors"></i>
+                    <div
+                        class="bg-black/40 border border-cyber-darkred/40 p-6 hover:border-cyber-red transition-colors duration-300 group flex flex-col items-center text-center">
+                        <i
+                            class="fas fa-toolbox text-4xl text-cyber-darkred mb-4 group-hover:text-cyber-red transition-colors"></i>
                         <h3 class="text-cyber-red font-bold mb-2 font-mono">Security Tools</h3>
                         <p class="text-sm text-gray-500">Metasploit, Hashcat, John, Dirb</p>
                     </div>
@@ -277,19 +302,24 @@
 
                 <div class="grid md:grid-cols-2 gap-8 max-w-lg mx-auto md:max-w-none md:grid-cols-1">
                     <!-- Project 1 -->
-                    <div class="bg-black/40 border border-cyber-darkred/40 hover:border-cyber-red transition-all duration-300 flex flex-col h-full group relative overflow-hidden p-8 max-w-2xl mx-auto w-full">
+                    <a href="https://github.com/CyberZaghloul/CryptoApp.git" target="_blank"
+                        class="block bg-black/40 border border-cyber-darkred/40 hover:border-cyber-red transition-all duration-300 flex flex-col h-full group relative overflow-hidden p-8 max-w-2xl mx-auto w-full cursor-pointer hover:shadow-[0_0_15px_rgba(229,9,20,0.3)]">
                         <div class="flex justify-between items-start mb-6">
-                            <h3 class="text-xl font-mono text-cyber-red mb-3 uppercase">Multi-Layer encryption authentication app</h3>
-                            <a href="https://github.com/CyberZaghloul/CryptoApp.git" target="_blank"
-                               class="text-cyber-darkred hover:text-cyber-red transition-colors">
-                                <i class="fab fa-github"></i>
-                            </a>
+                            <h3
+                                class="text-xl font-mono text-cyber-red mb-3 uppercase group-hover:text-white transition-colors">
+                                Multi-Layer encryption authentication app</h3>
+                            <div class="text-cyber-darkred group-hover:text-cyber-red transition-colors">
+                                <i class="fab fa-github text-2xl"></i>
+                            </div>
                         </div>
-                        <p class="text-gray-400 mb-6 flex-grow font-mono text-sm">
-                            CryptoApp is a secure desktop application for user registration and authentication, built with Python and PyQt5. 
-                            It implements a multi-layer encryption pipeline to protect user credentials, combining strong cryptographic security with a clean, professional interface.
+                        <p
+                            class="text-gray-400 mb-6 flex-grow font-mono text-sm group-hover:text-gray-300 transition-colors">
+                            CryptoApp is a secure desktop application for user registration and authentication, built
+                            with Python and PyQt5.
+                            It implements a multi-layer encryption pipeline to protect user credentials, combining
+                            strong cryptographic security with a clean, professional interface.
                         </p>
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -302,18 +332,21 @@
                     <div class="h-px bg-cyber-darkred/30 flex-grow ml-6"></div>
                 </div>
 
-                <div class="bg-black/40 border border-cyber-darkred/40 hover:border-cyber-red transition-all duration-300 flex flex-col group relative overflow-hidden p-8">
+                <a href="https://www.linkedin.com/posts/yahya-zaghloul-a70a70309_cybersecurity-continuouslearning-advansys-activity-7371577709006757888-uvNU?utm_source=share&utm_medium=member_android&rcm=ACoAAE6lRPQBP-hqmv8qPzERQu1-WNA4QLEmcgE"
+                    target="_blank"
+                    class="block bg-black/40 border border-cyber-darkred/40 hover:border-cyber-red transition-all duration-300 flex flex-col group relative overflow-hidden p-8 cursor-pointer hover:shadow-[0_0_15px_rgba(229,9,20,0.3)]">
                     <div class="flex justify-between items-start mb-6">
-                        <h3 class="text-xl font-mono text-cyber-red mb-3 uppercase">
+                        <h3
+                            class="text-xl font-mono text-cyber-red mb-3 uppercase group-hover:text-white transition-colors">
                             Cyber Security Internship - Advansys
                         </h3>
-                        <a href="https://www.linkedin.com/posts/yahya-zaghloul-a70a70309_cybersecurity-continuouslearning-advansys-activity-7371577709006757888-uvNU?utm_source=share&utm_medium=member_android&rcm=ACoAAE6lRPQBP-hqmv8qPzERQu1-WNA4QLEmcgE" target="_blank"
-                           class="text-cyber-darkred hover:text-[#0077b5] transition-colors text-2xl"
-                           title="View Certificate on LinkedIn">
+                        <div class="text-cyber-darkred group-hover:text-[#0077b5] transition-colors text-2xl"
+                            title="View Certificate on LinkedIn">
                             <i class="fab fa-linkedin"></i>
-                        </a>
+                        </div>
                     </div>
-                    <div class="text-gray-400 font-mono text-sm space-y-4 leading-relaxed">
+                    <div
+                        class="text-gray-400 font-mono text-sm space-y-4 leading-relaxed group-hover:text-gray-300 transition-colors">
                         <p>
                             &gt; Completed an intensive Internship Program within the Cyber Security Department at
                             Advansys, gaining hands-on exposure to industry-standard security protocols and practices.
@@ -327,7 +360,7 @@
                             theoretical knowledge to real-world networking challenges and security infrastructure.
                         </p>
                     </div>
-                </div>
+                </a>
             </div>
         </section>
 
@@ -344,7 +377,7 @@
                     open-source and available on my GitHub profile.
                 </p>
                 <a href="https://github.com/CyberZaghloul?tab=repositories" target="_blank"
-                   class="inline-flex items-center gap-2 px-8 py-3 bg-transparent text-white font-mono border border-cyber-darkred hover:border-cyber-red hover:text-cyber-red transition-all duration-300">
+                    class="inline-flex items-center gap-2 px-8 py-3 bg-transparent text-white font-mono border border-cyber-darkred hover:border-cyber-red hover:text-cyber-red transition-all duration-300">
                     <i class="fas fa-code-branch"></i> View GitHub
                 </a>
             </div>
@@ -363,30 +396,35 @@
                     <!-- Socials -->
                     <div class="md:col-span-2 space-y-6">
                         <p class="text-gray-400 mb-8">
-                            My inbox is always open. Whether you have a question, want to collaborate on a CTF, or just
+                            My inbox is always open. Whether you have a question, want to collaborate on machines and
+                            sherlocks, or just
                             want to say hi, I'll try my best to get back to you!
                         </p>
 
                         <div class="grid grid-cols-2 gap-4">
                             <a href="https://github.com/CyberZaghloul" target="_blank"
-                               class="flex flex-col items-center justify-center p-6 bg-black/40 border border-cyber-darkred/40 hover:border-cyber-red transition-all duration-300 group hover:shadow-[0_0_15px_rgba(229,9,20,0.3)]">
-                                <i class="fab fa-github text-3xl text-gray-500 group-hover:text-white mb-3 transition-colors"></i>
+                                class="flex flex-col items-center justify-center p-6 bg-black/40 border border-cyber-darkred/40 hover:border-cyber-red transition-all duration-300 group hover:shadow-[0_0_15px_rgba(229,9,20,0.3)]">
+                                <i
+                                    class="fab fa-github text-3xl text-gray-500 group-hover:text-white mb-3 transition-colors"></i>
                                 <span class="font-mono text-sm text-gray-400">GitHub</span>
                             </a>
                             <a href="https://www.linkedin.com/in/yahya-zaghloul-a70a70309/" target="_blank"
-                               class="flex flex-col items-center justify-center p-6 bg-black/40 border border-cyber-darkred/40 hover:border-cyber-red transition-all duration-300 group hover:shadow-[0_0_15px_rgba(229,9,20,0.3)]">
-                                <i class="fab fa-linkedin text-3xl text-gray-500 group-hover:text-[#0077b5] mb-3 transition-colors"></i>
+                                class="flex flex-col items-center justify-center p-6 bg-black/40 border border-cyber-darkred/40 hover:border-cyber-red transition-all duration-300 group hover:shadow-[0_0_15px_rgba(229,9,20,0.3)]">
+                                <i
+                                    class="fab fa-linkedin text-3xl text-gray-500 group-hover:text-[#0077b5] mb-3 transition-colors"></i>
                                 <span class="font-mono text-sm text-gray-400">LinkedIn</span>
                             </a>
                             <a href="mailto:yahyazaghloul36@gmail.com"
-                               class="flex flex-col items-center justify-center p-6 bg-black/40 border border-cyber-darkred/40 hover:border-cyber-red transition-all duration-300 group hover:shadow-[0_0_15px_rgba(229,9,20,0.3)]">
-                                <i class="fas fa-envelope text-3xl text-gray-500 group-hover:text-white mb-3 transition-colors"></i>
+                                class="flex flex-col items-center justify-center p-6 bg-black/40 border border-cyber-darkred/40 hover:border-cyber-red transition-all duration-300 group hover:shadow-[0_0_15px_rgba(229,9,20,0.3)]">
+                                <i
+                                    class="fas fa-envelope text-3xl text-gray-500 group-hover:text-white mb-3 transition-colors"></i>
                                 <span class="font-mono text-sm text-gray-400">Email</span>
                             </a>
                             <a href="https://profile.hackthebox.com/profile/019d2929-de31-7339-a932-623efc772dcc"
-                               target="_blank"
-                               class="flex flex-col items-center justify-center p-6 bg-black/40 border border-cyber-darkred/40 hover:border-cyber-red transition-all duration-300 group hover:shadow-[0_0_15px_rgba(229,9,20,0.3)]">
-                                <i class="fas fa-cube text-3xl text-gray-500 group-hover:text-[#9fef00] mb-3 transition-colors"></i>
+                                target="_blank"
+                                class="flex flex-col items-center justify-center p-6 bg-black/40 border border-cyber-darkred/40 hover:border-cyber-red transition-all duration-300 group hover:shadow-[0_0_15px_rgba(229,9,20,0.3)]">
+                                <i
+                                    class="fas fa-cube text-3xl text-gray-500 group-hover:text-[#9fef00] mb-3 transition-colors"></i>
                                 <span class="font-mono text-sm text-gray-400">Hack The Box</span>
                             </a>
                         </div>
@@ -394,7 +432,8 @@
 
                     <!-- Contact Form -->
                     <div class="md:col-span-3 bg-black/40 border border-cyber-darkred/40 p-8 relative">
-                        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyber-red to-transparent opacity-50">
+                        <div
+                            class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyber-red to-transparent opacity-50">
                         </div>
                         <form id="contact-form" class="space-y-6">
                             <div>
@@ -403,16 +442,15 @@
                                     enter_name
                                 </label>
                                 <input type="text" id="name" required
-                                       class="w-full bg-[#0a0a0a] border border-cyber-border focus:border-cyber-red text-white px-4 py-3 outline-none transition-colors font-sans">
+                                    class="w-full bg-[#0a0a0a] border border-cyber-border focus:border-cyber-red text-white px-4 py-3 outline-none transition-colors font-sans">
                             </div>
                             <div>
-                                <label for="contact-info"
-                                       class="block text-sm font-mono text-gray-400 mb-2">
+                                <label for="contact-info" class="block text-sm font-mono text-gray-400 mb-2">
                                     root@user:~#
                                     enter_email_or_phone
                                 </label>
                                 <input type="text" id="contact-info" required
-                                       class="w-full bg-[#0a0a0a] border border-cyber-border focus:border-cyber-red text-white px-4 py-3 outline-none transition-colors font-sans">
+                                    class="w-full bg-[#0a0a0a] border border-cyber-border focus:border-cyber-red text-white px-4 py-3 outline-none transition-colors font-sans">
                             </div>
                             <div>
                                 <label for="message" class="block text-sm font-mono text-gray-400 mb-2">
@@ -420,10 +458,10 @@
                                     enter_message
                                 </label>
                                 <textarea id="message" rows="4" required
-                                          class="w-full bg-[#0a0a0a] border border-cyber-border focus:border-cyber-red text-white px-4 py-3 outline-none transition-colors font-sans resize-none"></textarea>
+                                    class="w-full bg-[#0a0a0a] border border-cyber-border focus:border-cyber-red text-white px-4 py-3 outline-none transition-colors font-sans resize-none"></textarea>
                             </div>
                             <button type="submit"
-                                    class="w-full px-8 py-4 bg-cyber-red/10 text-cyber-red font-mono font-bold border border-cyber-red hover:bg-cyber-red hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
+                                class="w-full px-8 py-4 bg-cyber-red/10 text-cyber-red font-mono font-bold border border-cyber-red hover:bg-cyber-red hover:text-white transition-all duration-300 flex items-center justify-center gap-2">
                                 <i class="fas fa-paper-plane"></i> Execute_Send
                             </button>
                         </form>
@@ -436,14 +474,23 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-8 text-left bg-black border-t border-cyber-darkred/30 px-6">
-        <div class="max-w-6xl mx-auto">
+    <footer class="py-8 bg-black border-t border-cyber-darkred/30 px-6 relative">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
             <p class="font-mono text-cyber-darkred text-sm flex items-center gap-2">
                 root@portfolio:~# <span class="text-cyber-red">Stay curious. Keep hacking.</span> <span
                     class="cursor-blink text-cyber-red">_</span>
             </p>
+            <p class="text-sm font-mono text-gray-500">
+                &copy; <span id="year"></span> Yahya Zaghloul. All rights reserved.
+            </p>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top"
+        class="fixed bottom-8 right-8 w-12 h-12 bg-black/80 border border-cyber-darkred hover:border-cyber-red text-cyber-darkred hover:text-cyber-red flex items-center justify-center text-xl shadow-[0_0_10px_rgba(139,0,0,0.3)] hover:shadow-[0_0_15px_rgba(229,9,20,0.5)] transition-all duration-300 opacity-0 invisible z-50 group">
+        <i class="fas fa-chevron-up group-hover:-translate-y-1 transition-transform duration-300"></i>
+    </a>
 
     <!-- Custom Scripts -->
     <script src="script.js"></script>
