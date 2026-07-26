@@ -179,22 +179,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Note: True live API syncing without a backend requires authentication/CORS bypass. 
     // This provides a high-fidelity visual simulation of the platform's UI.
     const htbXpBar = document.getElementById('htb-xp-bar');
-    const htbRankText = document.getElementById('htb-rank-text');
-    const htbXpText = document.getElementById('htb-xp-text');
+    const htbRankTitle = document.getElementById('htb-rank-title');
+    const htbLevelNum = document.getElementById('htb-level-num');
+    const htbXpFraction = document.getElementById('htb-xp-fraction');
 
-    if (htbXpBar && htbRankText && htbXpText) {
+    if (htbXpBar) {
         // Updated to match your real profile stats (Level 31, 338/716 XP - Skilled)
-        const targetRank = "SKILLED (LVL 31)";
+        const targetRank = "Skilled";
+        const targetLevel = "31";
         const targetPercentage = 47.2;
-        const targetOwnership = "338 / 716 XP";
+        const targetXp = "338/716";
 
         setTimeout(() => {
-            htbXpText.textContent = `FETCHING PROFILE...`;
-            setTimeout(() => {
-                htbRankText.textContent = `${targetRank}`;
-                htbXpBar.style.width = `${targetPercentage}%`;
-                htbXpText.textContent = `LEVEL XP: ${targetOwnership}`;
-            }, 1000);
+            if (htbLevelNum) htbLevelNum.textContent = targetLevel;
+            if (htbRankTitle) htbRankTitle.textContent = targetRank;
+            if (htbXpFraction) htbXpFraction.textContent = targetXp;
+            htbXpBar.style.width = `${targetPercentage}%`;
         }, 800);
     }
 

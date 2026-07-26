@@ -144,25 +144,75 @@
 
                 <!-- Right Column (Map / Status) -->
                 <div class="hidden md:flex md:col-span-2 flex-col items-center justify-center font-mono space-y-6">
-                    <!-- HTB Rank / XP Bar -->
+                    <!-- HTB Widget (Portfolio Cyber Theme) -->
                     <a href="https://profile.hackthebox.com/profile/019d2929-de31-7339-a932-623efc772dcc"
                         target="_blank"
-                        class="w-full max-w-xs block bg-black/40 border border-cyber-darkred/40 p-4 hover:border-[#9fef00] transition-colors group cursor-pointer hover:shadow-[0_0_15px_rgba(159,239,0,0.2)]">
-                        <div class="flex justify-between items-center mb-2">
-                            <span class="text-[#9fef00] font-bold flex items-center gap-2">
-                                <i class="fas fa-cube"></i> HACK THE BOX
+                        class="w-full max-w-xs block bg-black/60 border border-cyber-darkred/40 p-4 hover:border-cyber-red transition-all duration-300 group cursor-pointer hover:shadow-[0_0_20px_rgba(229,9,20,0.25)] relative font-mono overflow-hidden">
+                        
+                        <!-- Header -->
+                        <div class="flex justify-between items-center mb-3 pb-2 border-b border-cyber-darkred/30 text-[0.7rem]">
+                            <span class="text-cyber-red font-bold flex items-center gap-1.5 tracking-wider">
+                                <i class="fas fa-cube text-xs"></i> HACK THE BOX
                             </span>
-                            <span class="text-xs text-gray-400 group-hover:text-white transition-colors"
-                                id="htb-rank-text">SYNCING...</span>
+                            <span class="text-gray-400 group-hover:text-white transition-colors flex items-center gap-1 text-[0.65rem]">
+                                <span class="w-1.5 h-1.5 rounded-full bg-cyber-red animate-pulse"></span> [HACKING]
+                            </span>
                         </div>
-                        <div class="w-full bg-cyber-bg h-3 border border-cyber-border relative overflow-hidden mt-3">
-                            <div id="htb-xp-bar"
-                                class="absolute top-0 left-0 h-full bg-[#9fef00] w-[0%] shadow-[0_0_10px_#9fef00] transition-all duration-1000 ease-out">
+
+                        <!-- Main Section: Left Icon + Right Stats -->
+                        <div class="flex items-center gap-3">
+                            <!-- Left: User Icon -->
+                            <div class="flex-shrink-0">
+                                <div class="w-14 h-14 bg-gradient-to-br from-cyber-darkred/30 via-black to-black border border-cyber-darkred/60 group-hover:border-cyber-red flex items-center justify-center p-1.5 shadow-[0_0_12px_rgba(229,9,20,0.2)] transition-all">
+                                    <img src="iconn.ico" alt="Icon" class="w-full h-full object-contain group-hover:scale-105 transition-transform" onerror="this.src='iconn.png'">
+                                </div>
                             </div>
-                        </div>
-                        <div class="flex justify-between text-[0.65rem] text-gray-500 mt-1">
-                            <span id="htb-xp-text">CONNECTING...</span>
-                            <span>[REAL-TIME]</span>
+
+                            <!-- Right: Level, XP Bar & Stats -->
+                            <div class="flex-grow space-y-2">
+                                <!-- Level Header -->
+                                <div class="flex justify-between items-baseline">
+                                    <div class="flex items-baseline gap-1">
+                                        <span class="text-[0.7rem] text-gray-400">Lvl</span>
+                                        <span id="htb-level-num" class="text-xl font-bold text-white tracking-tight">31</span>
+                                    </div>
+                                </div>
+
+                                <!-- Level XP & Progress Bar -->
+                                <div class="space-y-1">
+                                    <div class="flex justify-between text-[0.6rem] text-gray-400">
+                                        <span class="flex items-center gap-1">
+                                            Level <span class="bg-cyber-darkred/50 text-cyber-red px-1 py-0.2 rounded-[2px] text-[0.5rem] font-bold">XP</span>
+                                        </span>
+                                        <span id="htb-xp-fraction" class="text-gray-300">338/716</span>
+                                    </div>
+                                    <div class="w-full bg-cyber-bg h-2 border border-cyber-border relative overflow-hidden">
+                                        <div id="htb-xp-bar"
+                                            class="absolute top-0 left-0 h-full bg-gradient-to-r from-cyber-darkred to-cyber-red w-[0%] shadow-[0_0_10px_#e50914] transition-all duration-1000 ease-out">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Bottom Boxes (Rank & Grade) -->
+                                <div class="grid grid-cols-2 gap-1.5 pt-0.5">
+                                    <!-- Rank Box -->
+                                    <div class="bg-black/50 border border-cyber-darkred/30 p-1.5 text-left group-hover:border-cyber-darkred/60 transition-colors">
+                                        <div id="htb-rank-title" class="text-[0.7rem] font-bold text-white uppercase group-hover:text-cyber-red transition-colors">Skilled</div>
+                                        <div class="text-[0.55rem] text-gray-500">HTB Rank</div>
+                                    </div>
+
+                                    <!-- Grade Box -->
+                                    <div class="bg-black/50 border border-cyber-darkred/30 p-1.5 text-left group-hover:border-cyber-darkred/60 transition-colors">
+                                        <div class="text-[0.65rem] text-cyber-red flex items-center gap-1">
+                                            <i class="fas fa-diamond"></i>
+                                            <i class="far fa-diamond opacity-40"></i>
+                                            <i class="far fa-diamond opacity-40"></i>
+                                        </div>
+                                        <div class="text-[0.55rem] text-gray-500">Grade</div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     </a>
 
