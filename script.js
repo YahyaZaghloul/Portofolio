@@ -183,15 +183,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const htbXpText = document.getElementById('htb-xp-text');
 
     if (htbXpBar && htbRankText && htbXpText) {
-        // Updated to match your real profile stats (Level 25, 148/584 XP)
-        const targetRank = "APPRENTICE (LVL 25)";
-        const targetPercentage = 25.3;
-        const targetOwnership = "148 / 584 XP";
+        // Updated to match your real profile stats (Level 31, 338/716 XP - Skilled)
+        const targetRank = "SKILLED (LVL 31)";
+        const targetPercentage = 47.2;
+        const targetOwnership = "338 / 716 XP";
 
         setTimeout(() => {
             htbXpText.textContent = `FETCHING PROFILE...`;
             setTimeout(() => {
-                htbRankText.textContent = `LVL. ${targetRank}`;
+                htbRankText.textContent = `${targetRank}`;
                 htbXpBar.style.width = `${targetPercentage}%`;
                 htbXpText.textContent = `LEVEL XP: ${targetOwnership}`;
             }, 1000);
