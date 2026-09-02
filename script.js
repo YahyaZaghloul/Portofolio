@@ -38,32 +38,41 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Typing Effect for Hero Section
-    const textToType = "Ethical Hacker & Security Enthusiast";
+    // Dynamic Multi-Title Typing Effect for Hero Section
+    const titlesToType = [
+        "HTB Junior Cybersecurity Analyst",
+        "Offensive Security & Pentesting",
+        "Active Directory & Network Defense",
+        "Threat Hunter & Security Enthusiast"
+    ];
     const typingElement = document.getElementById('typing-text');
+    let titleIndex = 0;
     let charIndex = 0;
     let isTyping = true;
 
     function typeEffect() {
         if (!typingElement) return;
 
+        const currentText = titlesToType[titleIndex];
+
         if (isTyping) {
-            if (charIndex < textToType.length) {
-                typingElement.textContent += textToType.charAt(charIndex);
+            if (charIndex < currentText.length) {
+                typingElement.textContent += currentText.charAt(charIndex);
                 charIndex++;
-                setTimeout(typeEffect, Math.random() * 50 + 50); // Random typing speed
+                setTimeout(typeEffect, Math.random() * 40 + 40); // Random typing speed
             } else {
                 isTyping = false;
-                setTimeout(typeEffect, 3000); // Wait before erasing
+                setTimeout(typeEffect, 2500); // Pause before erasing
             }
         } else {
             if (charIndex > 0) {
-                typingElement.textContent = textToType.substring(0, charIndex - 1);
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
                 charIndex--;
-                setTimeout(typeEffect, 30); // Erasing speed
+                setTimeout(typeEffect, 25); // Erasing speed
             } else {
                 isTyping = true;
-                setTimeout(typeEffect, 500); // Wait before typing again
+                titleIndex = (titleIndex + 1) % titlesToType.length;
+                setTimeout(typeEffect, 400); // Wait before typing next
             }
         }
     }
@@ -184,11 +193,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const htbXpFraction = document.getElementById('htb-xp-fraction');
 
     if (htbXpBar) {
-        // Updated to match your real profile stats (Level 31, 338/716 XP - Skilled)
+        // Updated to match your real profile stats (Level 39, 140/930 XP - Skilled)
         const targetRank = "Skilled";
-        const targetLevel = "31";
-        const targetPercentage = 47.2;
-        const targetXp = "338/716";
+        const targetLevel = "39";
+        const targetPercentage = 15.1; // 140 / 930 = 15.05%
+        const targetXp = "140/930";
 
         setTimeout(() => {
             if (htbLevelNum) htbLevelNum.textContent = targetLevel;
