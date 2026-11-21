@@ -193,11 +193,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const htbXpFraction = document.getElementById('htb-xp-fraction');
 
     if (htbXpBar) {
-        // Updated to match your real profile stats (Level 39, 140/930 XP - Skilled)
-        const targetRank = "Skilled";
-        const targetLevel = "39";
-        const targetPercentage = 15.1; // 140 / 930 = 15.05%
-        const targetXp = "140/930";
+        // Updated to match real profile stats (Level 46, 568/1163 XP - Professional)
+        const targetRank = "Professional";
+        const targetLevel = "46";
+        const targetPercentage = 48.8; // 568 / 1163 = 48.84%
+        const targetXp = "568/1163";
 
         setTimeout(() => {
             if (htbLevelNum) htbLevelNum.textContent = targetLevel;

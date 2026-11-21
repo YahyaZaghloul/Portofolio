@@ -172,10 +172,10 @@
 
                         <!-- Main Section: Left Icon + Right Stats -->
                         <div class="flex items-center gap-3">
-                            <!-- Left: User Icon -->
+                            <!-- Left: Rank Icon -->
                             <div class="flex-shrink-0">
-                                <div class="w-14 h-14 bg-gradient-to-br from-cyber-darkred/30 via-black to-black border border-cyber-darkred/60 group-hover:border-cyber-red flex items-center justify-center p-1.5 shadow-[0_0_12px_rgba(229,9,20,0.2)] transition-all">
-                                    <img src="iconn.ico" alt="Icon" class="w-full h-full object-contain group-hover:scale-105 transition-transform" onerror="this.src='iconn.png'">
+                                <div class="w-14 h-14 bg-gradient-to-br from-cyber-darkred/30 via-black to-black border border-cyber-darkred/60 group-hover:border-cyber-red flex items-center justify-center p-1 shadow-[0_0_12px_rgba(229,9,20,0.2)] group-hover:shadow-[0_0_15px_rgba(229,9,20,0.4)] transition-all">
+                                    <img src="rank-icon.png" alt="HTB Professional Rank" class="w-full h-full object-contain group-hover:scale-110 drop-shadow-[0_0_8px_rgba(229,9,20,0.5)] transition-all duration-300">
                                 </div>
                             </div>
 
@@ -185,7 +185,7 @@
                                 <div class="flex justify-between items-baseline">
                                     <div class="flex items-baseline gap-1">
                                         <span class="text-[0.7rem] text-gray-400">Lvl</span>
-                                        <span id="htb-level-num" class="text-xl font-bold text-white tracking-tight">39</span>
+                                        <span id="htb-level-num" class="text-xl font-bold text-white tracking-tight">46</span>
                                     </div>
                                 </div>
 
@@ -195,7 +195,7 @@
                                         <span class="flex items-center gap-1">
                                             Level <span class="bg-cyber-darkred/50 text-cyber-red px-1 py-0.2 rounded-[2px] text-[0.5rem] font-bold">XP</span>
                                         </span>
-                                        <span id="htb-xp-fraction" class="text-gray-300">140/930</span>
+                                        <span id="htb-xp-fraction" class="text-gray-300">568/1163</span>
                                     </div>
                                     <div class="w-full bg-cyber-bg h-2 border border-cyber-border relative overflow-hidden">
                                         <div id="htb-xp-bar"
@@ -208,7 +208,7 @@
                                 <div class="grid grid-cols-2 gap-1.5 pt-0.5">
                                     <!-- Rank Box -->
                                     <div class="bg-black/50 border border-cyber-darkred/30 p-1.5 text-left group-hover:border-cyber-darkred/60 transition-colors">
-                                        <div id="htb-rank-title" class="text-[0.7rem] font-bold text-white uppercase group-hover:text-cyber-red transition-colors">Skilled</div>
+                                        <div id="htb-rank-title" class="text-[0.7rem] font-bold text-white uppercase group-hover:text-cyber-red transition-colors">Professional</div>
                                         <div class="text-[0.55rem] text-gray-500">HTB Rank</div>
                                     </div>
 
@@ -217,7 +217,7 @@
                                         <div class="text-[0.65rem] text-cyber-red flex items-center gap-1">
                                             <i class="fas fa-diamond"></i>
                                             <i class="fas fa-diamond"></i>
-                                            <i class="far fa-diamond opacity-40"></i>
+                                            <i class="fas fa-diamond"></i>
                                         </div>
                                         <div class="text-[0.55rem] text-gray-500">Grade</div>
                                     </div>
@@ -778,7 +778,7 @@
     </a>
 
     <!-- Custom Scripts -->
-    <script src="script.js?v=2.1"></script>
+    <script src="script.js?v=2.2"></script>
 </body>
 
 </html>
